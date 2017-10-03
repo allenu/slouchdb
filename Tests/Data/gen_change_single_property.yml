@@ -1,0 +1,64 @@
+# Empty initially and add one new entry
+
+input:
+    oldState:
+        snapshot:
+            objects:
+                john: 
+                    w: 10
+                    h: 32
+                frank:
+                    w: 15
+                    h: 2
+        histories: {}
+
+    patch:
+        john:
+            _id: john
+            df:
+                - _id: john
+                  ts: 2017-10-01T00:00:00Z
+                  pr:
+                      w: 12
+
+        frank:
+            _id: frank
+            df:
+                - _id: frank
+                  ts: 2017-10-01T00:00:00Z
+                  pr:
+                      length: carol
+
+output:
+    deltas:
+        john:
+            w: 12
+        frank:
+            length: carol
+
+    newState:
+        snapshot:
+            objects:
+                john: 
+                    w: 12
+                    h: 32
+                frank:
+                    w: 15
+                    h: 2
+                    length: carol
+        histories:
+            john:
+                _id: john
+                df:
+                    - _id: john
+                      ts: 2017-10-01T00:00:00Z
+                      pr:
+                          w: 12
+            frank:
+                _id: frank
+                df:
+                    - _id: frank
+                      ts: 2017-10-01T00:00:00Z
+                      pr:
+                          length: carol
+

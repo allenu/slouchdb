@@ -1,0 +1,12 @@
+use_frameworks!
+
+# Uncomment this line to define a global platform for your project
+# platform :osx, '10.12'
+
+target 'PeopleApp' do
+  pod 'SlouchDB', :path => '../', :testspecs => ['Tests']
+end
+
+target 'PeoplePocket' do
+  pod 'SlouchDB', :path => '../', :testspecs => ['Tests']
+end

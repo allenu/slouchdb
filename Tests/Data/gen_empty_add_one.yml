@@ -1,0 +1,44 @@
+# Empty initially and add one new entry
+
+input:
+    oldState:
+        snapshot:
+            objects: {}
+        histories: {}
+
+    patch:
+        apple:
+            _id: apple
+            df:
+                - _id: apple
+                  ts: 2017-10-01T00:00:00Z
+                  pr:
+                      a: aaron
+                      b: bob
+                      c: carol
+
+output:
+    deltas:
+        apple:
+            a: aaron
+            b: bob
+            c: carol
+
+    newState:
+        snapshot:
+            objects:
+                apple:
+                    a: aaron
+                    b: bob
+                    c: carol
+        histories:
+            apple:
+                _id: apple
+                df:
+                    - _id: apple
+                      ts: 2017-10-01T00:00:00Z
+                      pr:
+                          a: aaron
+                          b: bob
+                          c: carol
+

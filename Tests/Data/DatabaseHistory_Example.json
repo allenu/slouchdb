@@ -1,0 +1,62 @@
+{
+    "journal1" : {
+        "_id" : "journal1",
+        "df" : [
+            {
+                "_id" : "apple",
+                "ts" : "2017-10-01T00:00:00Z",
+                "pr" : {
+                    "height" : "5"
+                }
+            },
+            {
+                "_id" : "banana",
+                "ts" : "2017-10-01T00:00:01Z",
+                "pr" : {
+                    "color" : "green"
+                }
+            }
+        ]
+    },
+
+    "journal2" : {
+        "_id" : "journal2",
+        "df" : [
+            {
+                "_id" : "apple",
+                "ts" : "2017-10-01T00:00:01Z",
+                "pr" : {
+                    "height" : "5"
+                }
+            },
+            {
+                "_id" : "orange",
+                "ts" : "2017-10-01T00:00:05Z",
+                "pr" : {
+                    "color" : "reddish-orange"
+                }
+            }
+        ]
+    },
+
+    "journal3" : {
+        "_id" : "journal3",
+        "df" : [
+            {
+                "_id" : "apple",
+                "ts" : "2017-10-01T00:00:05Z",
+                "pr" : {
+                    "height" : "5"
+                }
+            },
+            {
+                "_id" : "banana",
+                "ts" : "2017-10-01T00:00:10Z",
+                "pr" : {
+                    "width" : "5"
+                }
+            }
+        ]
+    }
+}
+

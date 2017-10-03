@@ -1,0 +1,143 @@
+# Test that we can process two journals with changes to the same objects
+# and that we split and merge them appropriately.
+#
+# --------------------------------------------------------------------------------
+input:
+    jr:
+        - _id: local
+          df:
+            - _id: apple
+              ts: 2017-10-01T00:00:00Z
+              pr:
+                  weight: 1234
+                  height: john
+
+            - _id: banana
+              ts: 2017-10-01T00:00:03Z
+              pr:
+                  weight: 9876
+                  height: freedom
+
+            - _id: apple
+              ts: 2017-10-01T00:00:06Z
+              pr:
+                  weight: 9876
+                  height: freedom
+
+            - _id: apple
+              ts: 2017-10-01T00:00:08Z
+              pr:
+                  weight: citizen kane
+
+        - _id: remote
+          df:
+            - _id: banana
+              ts: 2017-10-01T00:00:02Z
+              pr:
+                  weight: frank
+                  height: germany
+
+            - _id: apple
+              ts: 2017-10-01T00:00:07Z
+              pr:
+                  height: africa
+
+            - _id: apple
+              ts: 2017-10-01T00:00:09Z
+              pr:
+                  weight: 112233
+
+    cache: {}
+
+# --------------------------------------------------------------------------------
+output:
+    patch:
+        apple:
+              _id: apple
+              df:
+                    - _id: apple
+                      ts: 2017-10-01T00:00:00Z
+                      pr:
+                          weight: 1234
+                          height: john
+
+                    - _id: apple
+                      ts: 2017-10-01T00:00:06Z
+                      pr:
+                          weight: 9876
+                          height: freedom
+
+                    - _id: apple
+                      ts: 2017-10-01T00:00:07Z
+                      pr:
+                          height: africa
+
+                    - _id: apple
+                      ts: 2017-10-01T00:00:08Z
+                      pr:
+                          weight: citizen kane
+
+                    - _id: apple
+                      ts: 2017-10-01T00:00:09Z
+                      pr:
+                          weight: 112233
+
+        banana:
+              _id: banana
+              df:
+                    - _id: banana
+                      ts: 2017-10-01T00:00:02Z
+                      pr:
+                          weight: frank
+                          height: germany
+
+                    - _id: banana
+                      ts: 2017-10-01T00:00:03Z
+                      pr:
+                          weight: 9876
+                          height: freedom
+    cache:
+        local:
+              _id: local
+              df:
+                - _id: apple
+                  ts: 2017-10-01T00:00:00Z
+                  pr:
+                      weight: 1234
+                      height: john
+
+                - _id: banana
+                  ts: 2017-10-01T00:00:03Z
+                  pr:
+                      weight: 9876
+                      height: freedom
+
+                - _id: apple
+                  ts: 2017-10-01T00:00:06Z
+                  pr:
+                      weight: 9876
+                      height: freedom
+
+                - _id: apple
+                  ts: 2017-10-01T00:00:08Z
+                  pr:
+                      weight: citizen kane
+        remote:
+              _id: remote
+              df:
+                - _id: banana
+                  ts: 2017-10-01T00:00:02Z
+                  pr:
+                      weight: frank
+                      height: germany
+
+                - _id: apple
+                  ts: 2017-10-01T00:00:07Z
+                  pr:
+                      height: africa
+
+                - _id: apple
+                  ts: 2017-10-01T00:00:09Z
+                  pr:
+                      weight: 112233
+

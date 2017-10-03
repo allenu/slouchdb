@@ -1,0 +1,22 @@
+PODS:
+  - SlouchDB (0.0.1):
+    - Yaml (~> 3.3.1)
+  - SlouchDB/Tests (0.0.1):
+    - Yaml (~> 3.3.1)
+  - Yaml (3.3.1)
+
+DEPENDENCIES:
+  - SlouchDB (from `../`)
+  - SlouchDB/Tests (from `../`)
+
+EXTERNAL SOURCES:
+  SlouchDB:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SlouchDB: 77cf9a31411107c5b463348d317926235d61e7bd
+  Yaml: 18b2cf7301c4132e2bbb508a6921d2637ed3046c
+
+PODFILE CHECKSUM: e936022abbcbd1a56086b933a6e29ed8a029f4e5
+
+COCOAPODS: 1.3.1

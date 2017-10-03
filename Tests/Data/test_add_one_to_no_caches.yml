@@ -1,0 +1,39 @@
+#  Test adding a new object to an empty local cache.
+#
+# --------------------------------------------------------------------------------
+input:
+    jr:
+        - _id: local
+          df:
+            - _id: object
+              ts: 2017-10-01T00:00:00Z
+              pr:
+                  abc: 1234
+                  def: apple
+                  ghi: whatever
+    # No local journals in the cache yet
+    cache: {}
+
+# --------------------------------------------------------------------------------
+output:
+    patch:
+        object:
+           _id: object
+           df:
+              - _id: object
+                ts: 2017-10-01T00:00:00Z
+                pr:
+                    abc: 1234
+                    def: apple
+                    ghi: whatever
+    cache:
+        local:
+            _id: local
+            df:
+                - _id: object
+                  ts: 2017-10-01T00:00:00Z
+                  pr:
+                      abc: 1234
+                      def: apple
+                      ghi: whatever
+

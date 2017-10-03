@@ -1,0 +1,65 @@
+# GenerateDatabaseState test
+
+input:
+    oldState:
+        snapshot:
+            objects:
+                apple:
+                    _id: apple
+                    _cd: 2017-10-01T00:00:00Z
+                    _lm: 2017-10-01T00:00:00Z
+                    weight: 1234
+                    height: john
+                    foo: bar
+        histories:
+            apple:
+                _id: apple
+                df:
+                    - _id: apple
+                      ts: 2017-10-01T00:00:00Z
+                      pr:
+                          weight: 1234
+                          height: john
+                          foo: bar
+
+
+    patch:
+        apple:
+            _id: apple
+            df:
+              - _id: apple
+                ts: 2017-10-01T00:00:01Z
+                pr:
+                    weight: 9
+                    height: jimmy
+
+output:
+    deltas:
+        apple:
+            weight: 9
+            height: jimmy
+
+    newState:
+        snapshot:
+            objects:
+                apple:
+                    _id: apple
+                    weight: 9
+                    height: jimmy
+                    foo: bar
+        histories:
+            apple:
+                _id: apple
+                df:
+                    - _id: apple
+                      ts: 2017-10-01T00:00:00Z
+                      pr:
+                          weight: 1234
+                          height: john
+                          foo: bar
+                    - _id: apple
+                      ts: 2017-10-01T00:00:01Z
+                      pr:
+                          weight: 9
+                          height: jimmy
+
