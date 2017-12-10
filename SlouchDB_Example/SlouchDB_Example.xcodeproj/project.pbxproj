@@ -7,8 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BBFB27DC39CC5E34A0A01D1 /* Pods_SlouchDB_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 113BDC83D87970C4547726D6 /* Pods_SlouchDB_Tests.framework */; };
 		4BF80A1ED3EA33D2F6BB00FB /* Pods_PeoplePocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528F6FA983319635304A4C45 /* Pods_PeoplePocket.framework */; };
 		8B02B818E8D55DA660800809 /* Pods_PeopleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 272C650CC10F340F25B65DCD /* Pods_PeopleApp.framework */; };
+		B728BD291FDCC35D00CE975C /* SlouchDB_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B728BD281FDCC35D00CE975C /* SlouchDB_Tests.swift */; };
+		B728BD3E1FDCC84B00CE975C /* DatabaseHistory_Example.json in Resources */ = {isa = PBXBuildFile; fileRef = B728BD2F1FDCC84B00CE975C /* DatabaseHistory_Example.json */; };
+		B728BD3F1FDCC84B00CE975C /* DatabaseSnapshot_Example.json in Resources */ = {isa = PBXBuildFile; fileRef = B728BD301FDCC84B00CE975C /* DatabaseSnapshot_Example.json */; };
+		B728BD401FDCC84B00CE975C /* DatabaseState_Example.json in Resources */ = {isa = PBXBuildFile; fileRef = B728BD311FDCC84B00CE975C /* DatabaseState_Example.json */; };
+		B728BD411FDCC84B00CE975C /* gen_change_single_property.yml in Resources */ = {isa = PBXBuildFile; fileRef = B728BD321FDCC84B00CE975C /* gen_change_single_property.yml */; };
+		B728BD421FDCC84B00CE975C /* gen_empty_add_one.yml in Resources */ = {isa = PBXBuildFile; fileRef = B728BD331FDCC84B00CE975C /* gen_empty_add_one.yml */; };
+		B728BD431FDCC84B00CE975C /* test_add_one.yml in Resources */ = {isa = PBXBuildFile; fileRef = B728BD341FDCC84B00CE975C /* test_add_one.yml */; };
+		B728BD441FDCC84B00CE975C /* test_add_one_to_no_caches.yml in Resources */ = {isa = PBXBuildFile; fileRef = B728BD351FDCC84B00CE975C /* test_add_one_to_no_caches.yml */; };
+		B728BD451FDCC84B00CE975C /* test_gen_example.yml in Resources */ = {isa = PBXBuildFile; fileRef = B728BD361FDCC84B00CE975C /* test_gen_example.yml */; };
+		B728BD461FDCC84B00CE975C /* test_ignore_old_diffs.yml in Resources */ = {isa = PBXBuildFile; fileRef = B728BD371FDCC84B00CE975C /* test_ignore_old_diffs.yml */; };
+		B728BD471FDCC84B00CE975C /* test_merge_input_journals.yml in Resources */ = {isa = PBXBuildFile; fileRef = B728BD381FDCC84B00CE975C /* test_merge_input_journals.yml */; };
+		B728BD481FDCC84B00CE975C /* test_modify_one_field.yml in Resources */ = {isa = PBXBuildFile; fileRef = B728BD391FDCC84B00CE975C /* test_modify_one_field.yml */; };
+		B728BD491FDCC84B00CE975C /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B728BD3A1FDCC84B00CE975C /* DatabaseTests.swift */; };
+		B728BD4A1FDCC84B00CE975C /* GenerateDatabaseStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B728BD3B1FDCC84B00CE975C /* GenerateDatabaseStateTests.swift */; };
+		B728BD4B1FDCC84B00CE975C /* DemuxJournalsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B728BD3C1FDCC84B00CE975C /* DemuxJournalsTests.swift */; };
+		B728BD4C1FDCC84B00CE975C /* SerializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B728BD3D1FDCC84B00CE975C /* SerializationTests.swift */; };
+		B728BD4E1FDCC99500CE975C /* YamlSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B728BD4D1FDCC99500CE975C /* YamlSerialization.swift */; };
 		B74D8AC31FC4B8E0000050B1 /* FolderBasedSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74D8AC21FC4B8DF000050B1 /* FolderBasedSyncer.swift */; };
 		B74D8AC51FC63F93000050B1 /* FileMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74D8AC41FC63F93000050B1 /* FileMetadata.swift */; };
 		B74D8ACA1FCE70D5000050B1 /* RemoteFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74D8AC91FCE70D5000050B1 /* RemoteFileManager.swift */; };
@@ -43,13 +61,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		113BDC83D87970C4547726D6 /* Pods_SlouchDB_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlouchDB_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D571C021A4D58C5ABE4FFFD /* Pods-PeopleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeopleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeopleApp/Pods-PeopleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		272C650CC10F340F25B65DCD /* Pods_PeopleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeopleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A0572C35705ACFDC0FDEA66 /* Pods-PeoplePocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeoplePocket.release.xcconfig"; path = "Pods/Target Support Files/Pods-PeoplePocket/Pods-PeoplePocket.release.xcconfig"; sourceTree = "<group>"; };
 		35EA83FE1B946C845A7A06D6 /* Pods_ConcertDB_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConcertDB_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		528F6FA983319635304A4C45 /* Pods_PeoplePocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeoplePocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B2E15600EE2908A73D5AD6F /* Pods-PeopleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeopleApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PeopleApp/Pods-PeopleApp.release.xcconfig"; sourceTree = "<group>"; };
+		AB8579C4368EB90A9950699E /* Pods-SlouchDB_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlouchDB_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlouchDB_Tests/Pods-SlouchDB_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B01747F506F54CC7D1FBE9BC /* Pods_ConcertDB_ExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConcertDB_ExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B728BD261FDCC35D00CE975C /* SlouchDB_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlouchDB_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B728BD281FDCC35D00CE975C /* SlouchDB_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlouchDB_Tests.swift; sourceTree = "<group>"; };
+		B728BD2A1FDCC35D00CE975C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B728BD2F1FDCC84B00CE975C /* DatabaseHistory_Example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DatabaseHistory_Example.json; sourceTree = "<group>"; };
+		B728BD301FDCC84B00CE975C /* DatabaseSnapshot_Example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DatabaseSnapshot_Example.json; sourceTree = "<group>"; };
+		B728BD311FDCC84B00CE975C /* DatabaseState_Example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DatabaseState_Example.json; sourceTree = "<group>"; };
+		B728BD321FDCC84B00CE975C /* gen_change_single_property.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gen_change_single_property.yml; sourceTree = "<group>"; };
+		B728BD331FDCC84B00CE975C /* gen_empty_add_one.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gen_empty_add_one.yml; sourceTree = "<group>"; };
+		B728BD341FDCC84B00CE975C /* test_add_one.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_add_one.yml; sourceTree = "<group>"; };
+		B728BD351FDCC84B00CE975C /* test_add_one_to_no_caches.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_add_one_to_no_caches.yml; sourceTree = "<group>"; };
+		B728BD361FDCC84B00CE975C /* test_gen_example.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_gen_example.yml; sourceTree = "<group>"; };
+		B728BD371FDCC84B00CE975C /* test_ignore_old_diffs.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_ignore_old_diffs.yml; sourceTree = "<group>"; };
+		B728BD381FDCC84B00CE975C /* test_merge_input_journals.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_merge_input_journals.yml; sourceTree = "<group>"; };
+		B728BD391FDCC84B00CE975C /* test_modify_one_field.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_modify_one_field.yml; sourceTree = "<group>"; };
+		B728BD3A1FDCC84B00CE975C /* DatabaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseTests.swift; sourceTree = "<group>"; };
+		B728BD3B1FDCC84B00CE975C /* GenerateDatabaseStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateDatabaseStateTests.swift; sourceTree = "<group>"; };
+		B728BD3C1FDCC84B00CE975C /* DemuxJournalsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemuxJournalsTests.swift; sourceTree = "<group>"; };
+		B728BD3D1FDCC84B00CE975C /* SerializationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationTests.swift; sourceTree = "<group>"; };
+		B728BD4D1FDCC99500CE975C /* YamlSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YamlSerialization.swift; sourceTree = "<group>"; };
 		B74D8AC21FC4B8DF000050B1 /* FolderBasedSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderBasedSyncer.swift; sourceTree = "<group>"; };
 		B74D8AC41FC63F93000050B1 /* FileMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileMetadata.swift; sourceTree = "<group>"; };
 		B74D8AC91FCE70D5000050B1 /* RemoteFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFileManager.swift; sourceTree = "<group>"; };
@@ -74,10 +113,19 @@
 		B7944CB51FB0314800961490 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B7944CB71FB0314800961490 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7944CB81FB0314800961490 /* SlouchDB_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SlouchDB_Example.entitlements; sourceTree = "<group>"; };
+		C30F0652EE66BD9B941B6CDC /* Pods-SlouchDB_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlouchDB_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlouchDB_Tests/Pods-SlouchDB_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		D3096E0229F314704A5C9738 /* Pods-PeoplePocket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeoplePocket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeoplePocket/Pods-PeoplePocket.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B728BD231FDCC35D00CE975C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BBFB27DC39CC5E34A0A01D1 /* Pods_SlouchDB_Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B74F37651FD7C664003CB8B8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -111,8 +159,43 @@
 				5B2E15600EE2908A73D5AD6F /* Pods-PeopleApp.release.xcconfig */,
 				D3096E0229F314704A5C9738 /* Pods-PeoplePocket.debug.xcconfig */,
 				2A0572C35705ACFDC0FDEA66 /* Pods-PeoplePocket.release.xcconfig */,
+				C30F0652EE66BD9B941B6CDC /* Pods-SlouchDB_Tests.debug.xcconfig */,
+				AB8579C4368EB90A9950699E /* Pods-SlouchDB_Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B728BD271FDCC35D00CE975C /* SlouchDB_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B728BD2E1FDCC84B00CE975C /* Data */,
+				B728BD3A1FDCC84B00CE975C /* DatabaseTests.swift */,
+				B728BD3C1FDCC84B00CE975C /* DemuxJournalsTests.swift */,
+				B728BD3B1FDCC84B00CE975C /* GenerateDatabaseStateTests.swift */,
+				B728BD3D1FDCC84B00CE975C /* SerializationTests.swift */,
+				B728BD281FDCC35D00CE975C /* SlouchDB_Tests.swift */,
+				B728BD4D1FDCC99500CE975C /* YamlSerialization.swift */,
+				B728BD2A1FDCC35D00CE975C /* Info.plist */,
+			);
+			path = SlouchDB_Tests;
+			sourceTree = "<group>";
+		};
+		B728BD2E1FDCC84B00CE975C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B728BD2F1FDCC84B00CE975C /* DatabaseHistory_Example.json */,
+				B728BD301FDCC84B00CE975C /* DatabaseSnapshot_Example.json */,
+				B728BD311FDCC84B00CE975C /* DatabaseState_Example.json */,
+				B728BD321FDCC84B00CE975C /* gen_change_single_property.yml */,
+				B728BD331FDCC84B00CE975C /* gen_empty_add_one.yml */,
+				B728BD341FDCC84B00CE975C /* test_add_one.yml */,
+				B728BD351FDCC84B00CE975C /* test_add_one_to_no_caches.yml */,
+				B728BD361FDCC84B00CE975C /* test_gen_example.yml */,
+				B728BD371FDCC84B00CE975C /* test_ignore_old_diffs.yml */,
+				B728BD381FDCC84B00CE975C /* test_merge_input_journals.yml */,
+				B728BD391FDCC84B00CE975C /* test_modify_one_field.yml */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		B74D8AC81FCE70C1000050B1 /* Syncing */ = {
@@ -178,6 +261,7 @@
 				0873923CB305F0C123B11CD4 /* Pods */,
 				B74F37691FD7C664003CB8B8 /* PeopleAppTests */,
 				B74F37781FD7D457003CB8B8 /* PeoplePocket */,
+				B728BD271FDCC35D00CE975C /* SlouchDB_Tests */,
 				D334963E95814C656211216D /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -188,6 +272,7 @@
 				B7944CA91FB0314800961490 /* PeopleApp.app */,
 				B74F37681FD7C664003CB8B8 /* PeopleAppTests.xctest */,
 				B74F37771FD7D457003CB8B8 /* PeoplePocket.app */,
+				B728BD261FDCC35D00CE975C /* SlouchDB_Tests.xctest */,
 			);
 			name = Products;
 			path = ..;
@@ -211,6 +296,7 @@
 				B01747F506F54CC7D1FBE9BC /* Pods_ConcertDB_ExampleTests.framework */,
 				272C650CC10F340F25B65DCD /* Pods_PeopleApp.framework */,
 				528F6FA983319635304A4C45 /* Pods_PeoplePocket.framework */,
+				113BDC83D87970C4547726D6 /* Pods_SlouchDB_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -218,6 +304,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B728BD251FDCC35D00CE975C /* SlouchDB_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B728BD2D1FDCC35D00CE975C /* Build configuration list for PBXNativeTarget "SlouchDB_Tests" */;
+			buildPhases = (
+				DA5EA21EE7133D065AEC48BD /* [CP] Check Pods Manifest.lock */,
+				B728BD221FDCC35D00CE975C /* Sources */,
+				B728BD231FDCC35D00CE975C /* Frameworks */,
+				B728BD241FDCC35D00CE975C /* Resources */,
+				85DEB59F7545E13E85897142 /* [CP] Embed Pods Frameworks */,
+				22D465FC254943269AD5311E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SlouchDB_Tests;
+			productName = SlouchDB_Tests;
+			productReference = B728BD261FDCC35D00CE975C /* SlouchDB_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B74F37671FD7C664003CB8B8 /* PeopleAppTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B74F376F1FD7C664003CB8B8 /* Build configuration list for PBXNativeTarget "PeopleAppTests" */;
@@ -282,10 +388,14 @@
 		B7944CA11FB0314800961490 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0910;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Ussher Press";
 				TargetAttributes = {
+					B728BD251FDCC35D00CE975C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					B74F37671FD7C664003CB8B8 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
@@ -317,11 +427,30 @@
 				B7944CA81FB0314800961490 /* PeopleApp */,
 				B74F37671FD7C664003CB8B8 /* PeopleAppTests */,
 				B74F37761FD7D457003CB8B8 /* PeoplePocket */,
+				B728BD251FDCC35D00CE975C /* SlouchDB_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B728BD241FDCC35D00CE975C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B728BD451FDCC84B00CE975C /* test_gen_example.yml in Resources */,
+				B728BD481FDCC84B00CE975C /* test_modify_one_field.yml in Resources */,
+				B728BD441FDCC84B00CE975C /* test_add_one_to_no_caches.yml in Resources */,
+				B728BD421FDCC84B00CE975C /* gen_empty_add_one.yml in Resources */,
+				B728BD431FDCC84B00CE975C /* test_add_one.yml in Resources */,
+				B728BD401FDCC84B00CE975C /* DatabaseState_Example.json in Resources */,
+				B728BD3E1FDCC84B00CE975C /* DatabaseHistory_Example.json in Resources */,
+				B728BD411FDCC84B00CE975C /* gen_change_single_property.yml in Resources */,
+				B728BD461FDCC84B00CE975C /* test_ignore_old_diffs.yml in Resources */,
+				B728BD471FDCC84B00CE975C /* test_merge_input_journals.yml in Resources */,
+				B728BD3F1FDCC84B00CE975C /* DatabaseSnapshot_Example.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B74F37661FD7C664003CB8B8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -352,6 +481,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		22D465FC254943269AD5311E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlouchDB_Tests/Pods-SlouchDB_Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		251F34D0EEEC1F910B3CA8F5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -360,12 +504,10 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PeopleApp/Pods-PeopleApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SlouchDB-macOS/SlouchDB.framework",
-				"${BUILT_PRODUCTS_DIR}/Yaml-macOS/Yaml.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlouchDB.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Yaml.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -405,6 +547,26 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PeoplePocket/Pods-PeoplePocket-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		85DEB59F7545E13E85897142 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SlouchDB_Tests/Pods-SlouchDB_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SlouchDB-macOS/SlouchDB.framework",
+				"${BUILT_PRODUCTS_DIR}/Yaml/Yaml.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlouchDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Yaml.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlouchDB_Tests/Pods-SlouchDB_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A619F642E187BCC06A9092D7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -438,6 +600,24 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PeopleApp/Pods-PeopleApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DA5EA21EE7133D065AEC48BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SlouchDB_Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E1B93A07284F3B04C6FF1D40 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -446,12 +626,10 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PeoplePocket/Pods-PeoplePocket-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SlouchDB-iOS/SlouchDB.framework",
-				"${BUILT_PRODUCTS_DIR}/Yaml-iOS/Yaml.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlouchDB.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Yaml.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -461,6 +639,19 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B728BD221FDCC35D00CE975C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B728BD4A1FDCC84B00CE975C /* GenerateDatabaseStateTests.swift in Sources */,
+				B728BD491FDCC84B00CE975C /* DatabaseTests.swift in Sources */,
+				B728BD291FDCC35D00CE975C /* SlouchDB_Tests.swift in Sources */,
+				B728BD4E1FDCC99500CE975C /* YamlSerialization.swift in Sources */,
+				B728BD4B1FDCC84B00CE975C /* DemuxJournalsTests.swift in Sources */,
+				B728BD4C1FDCC84B00CE975C /* SerializationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B74F37641FD7C664003CB8B8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -535,6 +726,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B728BD2B1FDCC35D00CE975C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C30F0652EE66BD9B941B6CDC /* Pods-SlouchDB_Tests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = NQ4H433LH4;
+				INFOPLIST_FILE = SlouchDB_Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ussherpress.SlouchDB-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		B728BD2C1FDCC35D00CE975C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB8579C4368EB90A9950699E /* Pods-SlouchDB_Tests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = NQ4H433LH4;
+				INFOPLIST_FILE = SlouchDB_Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ussherpress.SlouchDB-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		B74F37701FD7C664003CB8B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -755,6 +976,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B728BD2D1FDCC35D00CE975C /* Build configuration list for PBXNativeTarget "SlouchDB_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B728BD2B1FDCC35D00CE975C /* Debug */,
+				B728BD2C1FDCC35D00CE975C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B74F376F1FD7C664003CB8B8 /* Build configuration list for PBXNativeTarget "PeopleAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

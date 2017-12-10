@@ -41,7 +41,7 @@ public class Database {
     
     // Serialization
     
-    func save() {
+    public func save() {
         if journalCacheDirty {
             delegate?.database(self, saveJournalCache: journalCache)
             journalCacheDirty = false

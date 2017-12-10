@@ -14,9 +14,19 @@
 			<key>orderHint</key>
 			<integer>9</integer>
 		</dict>
+		<key>SlouchDB_Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>B74F37761FD7D457003CB8B8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B7944CA81FB0314800961490</key>
 		<dict>
 			<key>primary</key>

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SlouchDB
 import Yaml
 
 public func StringFromYaml(yaml: Yaml) -> String {

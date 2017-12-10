@@ -20,30 +20,20 @@ Pod::Spec.new do |s|
   s.summary      = "A distributed journal-based database"
 
   s.description  = <<-DESC
-                   A longer description of SlouchDB in Markdown format.
+                   SlouchDB is a database for Mac and iOS that provides a server-less solution for multi-client, single-user applications that wish to synchronize data across the multiple clients.
 
-                   * Think: Why did you write this? What is the focus? What does it do?
-                   * CocoaPods will be using this to generate tags, and improve search results.
-                   * Try to keep it short, snappy and to the point.
-                   * Finally, don't worry about the indent, CocoaPods strips it!
+                   Basically, it lets you sync data across multiple clients with only a file storage service, like Dropbox or OneDrive.
                    DESC
 
-  s.homepage     = "http://EXAMPLE/SlouchDB"
-  s.license      = "Proprietary"
-  s.author             = { "Allen Ussher" => "allen@ussher.ca" }
+  s.homepage     = "https://github.com/allenu/slouchdb"
+  s.license      = "MIT"
+  s.author       = { "Allen Ussher" => "allen@ussher.ca" }
   s.osx.deployment_target = "10.12"
   s.ios.deployment_target = "11.1"
 
-  s.source       = { :git => "https://allenu@bitbucket.org/allenu/decentdb.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/allenu/slouchdb.git", :tag => "0.0.1" }
   s.source_files  = "Src", "Src/**/*.swift"
-  s.public_header_files = "public/*.h"
+  # s.public_header_files = "public/*.h"
   s.requires_arc = true
-  s.dependency "Yaml", "~> 3.3.1"
-
-  s.test_spec 'Tests' do |test_spec|
-    test_spec.source_files = 'Tests/*.swift'
-    test_spec.resources = 'Tests/Data/*.yml'
-  end  
-
 end
 

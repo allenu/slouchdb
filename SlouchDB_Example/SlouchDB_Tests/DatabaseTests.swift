@@ -9,7 +9,7 @@
 import Foundation
 import XCTest
 import Yaml
-@testable import SlouchDB
+import SlouchDB
 
 class DatabaseTests: XCTestCase {
     var database: Database!

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0910"
+   LastUpgradeVersion = "0920"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B7944CA81FB0314800961490"
-               BuildableName = "PeopleApp.app"
-               BlueprintName = "PeopleApp"
+               BlueprintIdentifier = "B74F37761FD7D457003CB8B8"
+               BuildableName = "PeoplePocket.app"
+               BlueprintName = "PeoplePocket"
                ReferencedContainer = "container:SlouchDB_Example.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,33 +29,13 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B74F37671FD7C664003CB8B8"
-               BuildableName = "PeopleAppTests.xctest"
-               BlueprintName = "PeopleAppTests"
-               ReferencedContainer = "container:SlouchDB_Example.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B728BD251FDCC35D00CE975C"
-               BuildableName = "SlouchDB_Tests.xctest"
-               BlueprintName = "SlouchDB_Tests"
-               ReferencedContainer = "container:SlouchDB_Example.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B7944CA81FB0314800961490"
-            BuildableName = "PeopleApp.app"
-            BlueprintName = "PeopleApp"
+            BlueprintIdentifier = "B74F37761FD7D457003CB8B8"
+            BuildableName = "PeoplePocket.app"
+            BlueprintName = "PeoplePocket"
             ReferencedContainer = "container:SlouchDB_Example.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -77,9 +57,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B7944CA81FB0314800961490"
-            BuildableName = "PeopleApp.app"
-            BlueprintName = "PeopleApp"
+            BlueprintIdentifier = "B74F37761FD7D457003CB8B8"
+            BuildableName = "PeoplePocket.app"
+            BlueprintName = "PeoplePocket"
             ReferencedContainer = "container:SlouchDB_Example.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -96,9 +76,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B7944CA81FB0314800961490"
-            BuildableName = "PeopleApp.app"
-            BlueprintName = "PeopleApp"
+            BlueprintIdentifier = "B74F37761FD7D457003CB8B8"
+            BuildableName = "PeoplePocket.app"
+            BlueprintName = "PeoplePocket"
             ReferencedContainer = "container:SlouchDB_Example.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

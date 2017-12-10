@@ -8,7 +8,7 @@
 
 import XCTest
 import Yaml
-@testable import SlouchDB
+import SlouchDB
 
 
 class GenerateDatabaseStateTests: XCTestCase {
