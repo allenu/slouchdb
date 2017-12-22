@@ -12,7 +12,9 @@ import SlouchDB
 class Document: NSDocument {
     var databaseController: SampleDatabaseController
     var localIdentifier: String
-    var syncMetadata: [String : FileMetadata] = [:]
+    
+    var syncState: SyncState = SyncState()
+    var localFolder: URL
     
     // Maps user Ids to local identifiers used. Last one is the latest identifier.
     let userIdentifier: String
@@ -33,7 +35,13 @@ class Document: NSDocument {
         
         let database = Database(localIdentifier: localIdentifier)
         databaseController = SampleDatabaseController(database: database)
+        
+        let applicationSupportUrl = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+        let syncFolderUrl = applicationSupportUrl.appendingPathComponent("sync")
+        localFolder = syncFolderUrl.appendingPathComponent("localFolder", isDirectory: true)
 
+        try! FileManager.default.createDirectory(at: localFolder, withIntermediateDirectories: true, attributes: nil)
+        
         super.init()
         // Add your subclass-specific initialization here.
         
@@ -63,16 +71,17 @@ class Document: NSDocument {
         let journalsData = try JSONSerialization.data(withJSONObject: journalsDictionary, options: .prettyPrinted)
         let journalsFileWrapper = FileWrapper(regularFileWithContents: journalsData)
 
-        let syncData = SerializeSyncMetadata(syncMetadata: syncMetadata)
-        let syncFileWrapper = FileWrapper(regularFileWithContents: syncData)
-        
         let identifiersData = try JSONSerialization.data(withJSONObject: localIdentifierMapping, options: .prettyPrinted)
         let identifiersFileWrapper = FileWrapper(regularFileWithContents: identifiersData)
+        
+        let syncStateDictionary = syncState.toDictionary()
+        let syncStateData = try JSONSerialization.data(withJSONObject: syncStateDictionary, options: .prettyPrinted)
+        let syncStateFileWrapper = FileWrapper(regularFileWithContents: syncStateData)
 
         let documentFileWrapper = FileWrapper(directoryWithFileWrappers: ["snapshot.json" : snapshotFileWrapper,
                                                                                 "histories.json" : historiesFileWrapper,
                                                                                 "journals.json" : journalsFileWrapper,
-                                                                                "sync.json" : syncFileWrapper,
+                                                                                "syncState.json" : syncStateFileWrapper,
                                                                                 "identifiers.json" : identifiersFileWrapper])
         return documentFileWrapper
     }
@@ -81,17 +90,18 @@ class Document: NSDocument {
         var snapshot: DatabaseObjectSnapshot? = nil
         var histories: DatabaseObjectHistories? = nil
         var journalCache: MultiplexJournalCache? = nil
+        var syncState: SyncState? = nil
         var localIdentifierMapping: [String : [String] ]? = nil
 
         if let subFileWrappers = fileWrapper.fileWrappers {
-            if let syncFileWrapper = subFileWrappers.values.filter({ $0.filename! == "sync.json" }).first {
-                if let data = syncFileWrapper.regularFileContents {
-                    if let syncDictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any] {
-                        syncMetadata = DeserializeSyncMetadata(fromJsonDictionary: syncDictionary)
+            if let syncStateFileWrapper = subFileWrappers.values.filter({ $0.filename! == "syncState.json" }).first {
+                if let data = syncStateFileWrapper.regularFileContents {
+                    if let syncStateDictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any] {
+                        syncState = SyncState.from(dictionary: syncStateDictionary)
                     }
                 }
             }
-            
+
             if let identifiersFileWrapper = subFileWrappers.values.filter({ $0.filename! == "identifiers.json" }).first {
                 if let data = identifiersFileWrapper.regularFileContents {
                     if let identifiersDictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String : [String] ] {
@@ -125,7 +135,7 @@ class Document: NSDocument {
             }
         }
 
-        if let snapshot = snapshot, let histories = histories, let journalCache = journalCache,
+        if let syncState = syncState, let snapshot = snapshot, let histories = histories, let journalCache = journalCache,
             var localIdentifierMapping = localIdentifierMapping {
             // Load our local identifier
             if let newLocalIdentifier = localIdentifierMapping[self.userIdentifier]?.last {
@@ -140,6 +150,7 @@ class Document: NSDocument {
                 }
             }
             self.localIdentifierMapping = localIdentifierMapping
+            self.syncState = syncState
             
             let database = Database(localIdentifier: localIdentifier,
                                     cachedJournals: journalCache.journals,
@@ -218,11 +229,9 @@ extension Document {
 // Syncing API
 extension Document {
     func sync(remoteFolderURL: URL) {
+        let syncDelegate = FileSyncDelegate(localURL: self.localFolder, remoteURL: remoteFolderURL)
+        
         DispatchQueue.global().async {
-            let tmpFolderURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
-            self.removeFolder(folder: tmpFolderURL)
-            try! FileManager.default.createDirectory(at: tmpFolderURL, withIntermediateDirectories: true, attributes: nil)
-            
             // Write out all local journals that are newer than the remote or doesn't exist remotely yet
             var pushFiles: [URL] = []
             if let localIdentifiers = self.localIdentifierMapping[self.userIdentifier] {
@@ -230,53 +239,81 @@ extension Document {
                     if let localJournal = self.databaseController.database.journalCache.journals[localIdentifier] {
                         if localJournal.diffs.count > 0 {
                             
-                            let lastModifiedDate = localJournal.diffs.last!.timestamp
-
-                            // Push the file if it's not in remote yet or newer than remote
-                            var pushThisFile = false
+                            let currentLastDiffDate = localJournal.diffs.last!.timestamp
                             let localJournalFilename = "\(localIdentifier).journal"
-                            if let localJournalFileMetadata = self.syncMetadata[localJournalFilename] {
-                                pushThisFile = lastModifiedDate > localJournalFileMetadata.lastModifiedDate
+                            var pushThisFile = false
+                            
+                            // If it's in the cache, take a look
+                            if let info = self.syncState.journalFileMetadata[localIdentifier] {
+                                if info.lastDiffDate < currentLastDiffDate {
+                                    // What's in mem is newer than what we have in the cache, so
+                                    pushThisFile = true
+                                }
                             } else {
+                                // It's not even in the cache, so definitely write it out and push it if necessary
                                 pushThisFile = true
                             }
-
+                            
                             if pushThisFile {
-                                let tmpJournalFileURL = tmpFolderURL.appendingPathComponent(localJournalFilename)
+                                let journalFileURL = self.localFolder.appendingPathComponent(localJournalFilename)
                                 
                                 // Write the journal to disk
                                 var jsonDictionary: [String : Any] = [:]
                                 jsonDictionary["_id"] = localIdentifier
                                 jsonDictionary["df"] = localJournal.diffs.map { SerializeJournalDiff(journalDiff: $0) }
                                 let data = try! JSONSerialization.data(withJSONObject: jsonDictionary, options: [])
-                                try! data.write(to: tmpJournalFileURL)
-
-                                pushFiles.append(tmpJournalFileURL)
+                                try! data.write(to: journalFileURL)
+                                
+                                // Get the write date from the file system
+                                let attributes = try! FileManager.default.attributesOfItem(atPath: journalFileURL.path)
+                                let lastWriteDate = attributes[FileAttributeKey.modificationDate] as! Date
+                                
+                                // Save the latest info to the cache
+                                self.syncState.journalFileMetadata[localIdentifier] = JournalFileMetadata(lastDiffDate: currentLastDiffDate, lastWriteDate: lastWriteDate)
+                                
+                                let fileMetadata = FileMetadata(filename: localJournalFilename, lastModifiedDate: lastWriteDate, filesize: data.count)
+                                self.syncState.localMetadata[localJournalFilename] = fileMetadata
+                                
+                                pushFiles.append(journalFileURL)
                             }
                         }
                     }
                 }
             }
-
             
-            let remoteFileManager = FolderBasedRemoteFileManager(remoteURL: remoteFolderURL)
-            Sync(syncMetadata: self.syncMetadata, localFiles: pushFiles, remoteFolder: remoteFolderURL, localFolder: tmpFolderURL, remoteFileManager: remoteFileManager) { syncResult in
-            
-                var documentChanged = (syncResult.pushedSyncMetadata.count > 0 || syncResult.pulledSyncMetadata.count > 0)
-                
-                // Do the merge ...
-                let journalFiles: [URL] = syncResult.pulledFiles.filter { $0.lastPathComponent.hasSuffix(".journal") }
-                let remoteJournals = self.journals(fromFiles: journalFiles)
-                DispatchQueue.main.async {
-                    let mergeChangedDatabase = self.databaseController.database.merge(multiplexJournals: remoteJournals)
-                    documentChanged = documentChanged || mergeChangedDatabase
+            Sync(localMetadata: self.syncState.localMetadata, remoteMetadata: self.syncState.remoteMetadata, delegate: syncDelegate) { syncResult, error in
+                if let error = error {
+                    Swift.print("Failed to sync: \(error)")
+                } else if let syncResult = syncResult {
+                    var documentChanged = (syncResult.pushedFiles.count > 0 || syncResult.pulledFiles.count > 0)
                     
-                    if documentChanged {
-                        self.syncMetadata = syncResult.updatedSyncMetadata
-                        self.updateChangeCount(.changeDone)
+                    // Do the merge ...
+                    let journalFilenames: [String] = syncResult.pulledFiles.filter { $0.hasSuffix(".journal") }
+                    let journalFileURLs: [URL] = journalFilenames.map { self.localFolder.appendingPathComponent($0) }
+                    
+                    let remoteJournals = self.journals(fromFiles: journalFileURLs)
+                    DispatchQueue.main.async {
+                        let mergeChangedDatabase = self.databaseController.database.merge(multiplexJournals: remoteJournals)
+                        documentChanged = documentChanged || mergeChangedDatabase
+                        
+                        if documentChanged {
+                            self.syncState.remoteMetadata = syncResult.remoteMetadata
+                            
+                            if syncResult.pushedFiles.count > 0 {
+                                Swift.print("Pushed \(syncResult.pushedFiles.count) file(s)")
+                            }
+                            if syncResult.pulledFiles.count > 0 {
+                                Swift.print("Pulled \(syncResult.pulledFiles.count) file(s)")
+                            }
+
+                            self.updateChangeCount(.changeDone)
+                        }
                     }
+                } else {
+                    fatalError()
                 }
             }
         }
     }
 }
+

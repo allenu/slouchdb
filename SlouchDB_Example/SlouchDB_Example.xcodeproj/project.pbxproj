@@ -27,9 +27,7 @@
 		B728BD4B1FDCC84B00CE975C /* DemuxJournalsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B728BD3C1FDCC84B00CE975C /* DemuxJournalsTests.swift */; };
 		B728BD4C1FDCC84B00CE975C /* SerializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B728BD3D1FDCC84B00CE975C /* SerializationTests.swift */; };
 		B728BD4E1FDCC99500CE975C /* YamlSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B728BD4D1FDCC99500CE975C /* YamlSerialization.swift */; };
-		B74D8AC31FC4B8E0000050B1 /* FolderBasedSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74D8AC21FC4B8DF000050B1 /* FolderBasedSyncer.swift */; };
-		B74D8AC51FC63F93000050B1 /* FileMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74D8AC41FC63F93000050B1 /* FileMetadata.swift */; };
-		B74D8ACA1FCE70D5000050B1 /* RemoteFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74D8AC91FCE70D5000050B1 /* RemoteFileManager.swift */; };
+		B728BDAC1FEDAC6500CE975C /* FileSyncDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B728BDAB1FEDAC6500CE975C /* FileSyncDelegate.swift */; };
 		B74F37541FD49138003CB8B8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B74F37531FD49138003CB8B8 /* README.md */; };
 		B74F37721FD7C699003CB8B8 /* PeopleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F376A1FD7C664003CB8B8 /* PeopleAppTests.swift */; };
 		B74F377A1FD7D457003CB8B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F37791FD7D457003CB8B8 /* AppDelegate.swift */; };
@@ -37,9 +35,6 @@
 		B74F377F1FD7D457003CB8B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B74F377D1FD7D457003CB8B8 /* Main.storyboard */; };
 		B74F37811FD7D457003CB8B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B74F37801FD7D457003CB8B8 /* Assets.xcassets */; };
 		B74F37841FD7D457003CB8B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B74F37821FD7D457003CB8B8 /* LaunchScreen.storyboard */; };
-		B74F37971FD7D472003CB8B8 /* FileMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74D8AC41FC63F93000050B1 /* FileMetadata.swift */; };
-		B74F37981FD7D472003CB8B8 /* RemoteFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74D8AC91FCE70D5000050B1 /* RemoteFileManager.swift */; };
-		B74F37991FD7D472003CB8B8 /* FolderBasedSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74D8AC21FC4B8DF000050B1 /* FolderBasedSyncer.swift */; };
 		B74F379A1FD7D48B003CB8B8 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D38AD1FB799E300F1ED55 /* Person.swift */; };
 		B76D38AE1FB799E300F1ED55 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D38AD1FB799E300F1ED55 /* Person.swift */; };
 		B76D38B11FB95DE600F1ED55 /* SampleDatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D38B01FB95DE600F1ED55 /* SampleDatabaseController.swift */; };
@@ -89,9 +84,7 @@
 		B728BD3C1FDCC84B00CE975C /* DemuxJournalsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemuxJournalsTests.swift; sourceTree = "<group>"; };
 		B728BD3D1FDCC84B00CE975C /* SerializationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationTests.swift; sourceTree = "<group>"; };
 		B728BD4D1FDCC99500CE975C /* YamlSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YamlSerialization.swift; sourceTree = "<group>"; };
-		B74D8AC21FC4B8DF000050B1 /* FolderBasedSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderBasedSyncer.swift; sourceTree = "<group>"; };
-		B74D8AC41FC63F93000050B1 /* FileMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileMetadata.swift; sourceTree = "<group>"; };
-		B74D8AC91FCE70D5000050B1 /* RemoteFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFileManager.swift; sourceTree = "<group>"; };
+		B728BDAB1FEDAC6500CE975C /* FileSyncDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSyncDelegate.swift; sourceTree = "<group>"; };
 		B74F37531FD49138003CB8B8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B74F37681FD7C664003CB8B8 /* PeopleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeopleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B74F376A1FD7C664003CB8B8 /* PeopleAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleAppTests.swift; sourceTree = "<group>"; };
@@ -201,9 +194,7 @@
 		B74D8AC81FCE70C1000050B1 /* Syncing */ = {
 			isa = PBXGroup;
 			children = (
-				B74D8AC41FC63F93000050B1 /* FileMetadata.swift */,
-				B74D8AC91FCE70D5000050B1 /* RemoteFileManager.swift */,
-				B74D8AC21FC4B8DF000050B1 /* FolderBasedSyncer.swift */,
+				B728BDAB1FEDAC6500CE975C /* FileSyncDelegate.swift */,
 			);
 			path = Syncing;
 			sourceTree = "<group>";
@@ -665,10 +656,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B74F379A1FD7D48B003CB8B8 /* Person.swift in Sources */,
-				B74F37991FD7D472003CB8B8 /* FolderBasedSyncer.swift in Sources */,
 				B74F377C1FD7D457003CB8B8 /* ViewController.swift in Sources */,
-				B74F37981FD7D472003CB8B8 /* RemoteFileManager.swift in Sources */,
-				B74F37971FD7D472003CB8B8 /* FileMetadata.swift in Sources */,
 				B74F377A1FD7D457003CB8B8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -681,10 +669,8 @@
 				B76D38B11FB95DE600F1ED55 /* SampleDatabaseController.swift in Sources */,
 				B7944CAD1FB0314800961490 /* AppDelegate.swift in Sources */,
 				B76D38AE1FB799E300F1ED55 /* Person.swift in Sources */,
-				B74D8AC31FC4B8E0000050B1 /* FolderBasedSyncer.swift in Sources */,
-				B74D8AC51FC63F93000050B1 /* FileMetadata.swift in Sources */,
 				B7944CB11FB0314800961490 /* Document.swift in Sources */,
-				B74D8ACA1FCE70D5000050B1 /* RemoteFileManager.swift in Sources */,
+				B728BDAC1FEDAC6500CE975C /* FileSyncDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

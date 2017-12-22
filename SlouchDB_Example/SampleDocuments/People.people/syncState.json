@@ -1,0 +1,22 @@
+{
+  "remote" : {
+    "files" : {
+
+    }
+  },
+  "local" : {
+    "files" : {
+      "C4588EFD-82F4-4EE5-B965-BFAA55AFA384.journal" : {
+        "filename" : "C4588EFD-82F4-4EE5-B965-BFAA55AFA384.journal",
+        "filesize" : 877,
+        "lastModified" : "2017-12-23T18:08:29GMT"
+      }
+    }
+  },
+  "localJournalMetadata" : {
+    "C4588EFD-82F4-4EE5-B965-BFAA55AFA384" : {
+      "lastWriteDate" : "2017-12-23T18:08:29GMT",
+      "lastDiffDate" : "2017-12-23T18:08:17GMT"
+    }
+  }
+}

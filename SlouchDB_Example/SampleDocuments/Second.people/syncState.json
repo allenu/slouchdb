@@ -1,0 +1,26 @@
+{
+  "remote" : {
+    "files" : {
+      "C4588EFD-82F4-4EE5-B965-BFAA55AFA384.journal" : {
+        "filename" : "C4588EFD-82F4-4EE5-B965-BFAA55AFA384.journal",
+        "filesize" : 877,
+        "lastModified" : "2017-12-23T18:08:29GMT"
+      }
+    }
+  },
+  "local" : {
+    "files" : {
+      "E5D2A09D-034A-4F3E-9EB7-31E3814E4D6B.journal" : {
+        "filename" : "E5D2A09D-034A-4F3E-9EB7-31E3814E4D6B.journal",
+        "filesize" : 824,
+        "lastModified" : "2017-12-23T18:09:14GMT"
+      }
+    }
+  },
+  "localJournalMetadata" : {
+    "E5D2A09D-034A-4F3E-9EB7-31E3814E4D6B" : {
+      "lastWriteDate" : "2017-12-23T18:09:14GMT",
+      "lastDiffDate" : "2017-12-23T18:09:02GMT"
+    }
+  }
+}
