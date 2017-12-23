@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SlouchDB"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "A synchronizable, journal-based database that uses remote file store for synchronization"
 
   s.description  = <<-DESC
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = "10.12"
   s.ios.deployment_target = "11.1"
 
-  s.source       = { :git => "https://github.com/allenu/slouchdb.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/allenu/slouchdb.git", :tag => "0.0.3" }
   s.source_files  = "Src", "Src/**/*.swift"
   s.requires_arc = true
 end
